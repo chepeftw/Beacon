@@ -127,7 +127,6 @@ func beacon() {
  
 func main() {
     fmt.Printf("Hello World!")
-    myIP = SelfIP();
 
     // +++++++++++++++++++++++++++++
     // ++++++++ Logger conf
@@ -154,6 +153,9 @@ func main() {
 
     log.Info("Starting UPD Beacon")
 
+    // It gives one minute time for the network to get configured before it gets its own IP.
+    time.Sleep(time.Second * 60)
+    myIP = SelfIP();
 
     // Lets prepare a address at any address at port 10001
     ServerAddr,err := net.ResolveUDPAddr(Protocol, Port)
