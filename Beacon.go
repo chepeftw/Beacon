@@ -112,6 +112,8 @@ func beacon() {
     js, err := json.Marshal(payload)
     CheckError(err)
 
+    log.Info("Our random message is "+t)
+
     if Conn != nil {
         msg := js
         buf := []byte(msg)
@@ -149,6 +151,8 @@ func main() {
     logging.SetBackend(backendFormatter)
     // ++++++++ END Logger conf
     // +++++++++++++++++++++++++++++
+
+    log.Info("Starting UPD Beacon")
 
 
     // Lets prepare a address at any address at port 10001
