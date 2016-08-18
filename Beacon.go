@@ -120,7 +120,7 @@ func beacon() {
         for {
             _,err = Conn.Write(buf)
             CheckError(err)
-            time.Sleep(time.Second * 2)
+            time.Sleep(time.Second * 5)
         }
     }
 }
